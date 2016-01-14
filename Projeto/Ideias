@@ -1,0 +1,23 @@
+
+	WatchServerMan
+
+	Monitoramento de linha de comando utilizando o screen
+	
+	Adicionando o servidor, etapas:
+
+	1 - Verificar se o Screen está instalado
+	2 - Editar o arquivo ~/.bash_profile e fazer com que o usuário entre diretamente para uma Screen
+	3 - Oferecer opções básicas de monitoramento
+
+
+	Utilização do monitor:
+
+	1 - Fazer o login na aplicação
+	2 - Listar comandos utilizados nos servidores já adicionados
+	3 - Comunicar quando usuário encerrar a Screen e não desconectar do servidor
+
+	Funcionamento do monitor:
+
+	1 - Usuário acessa automaticamente em um Screen
+	2 - #screen -ls - informa as screens
+	3 - #screen -xr nome_da.screen - Inicia o monitoramento

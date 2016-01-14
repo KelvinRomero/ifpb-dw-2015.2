@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gerador de itens</title>
+	<!-- 
+		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	 -->
+</head>
+<body>
+	<input type="text" id="qtde">
+	<button onclick="gera()">Gerar itens</button>
+	<ol id="lista"></ol>
+
+	<script>
+		function gera(){
+			var qtde = document.querySelector("#qtde").value; //Pega o número na caixa de texto
+			var resultado = " ";
+			for(var flag = 1; flag <= qtde; flag++){
+				resultado += "<li>Item</li>";
+			}
+
+			document.querySelector("#lista").innerHTML = resultado;
+		}
+	</script>
+</body>
+</html>

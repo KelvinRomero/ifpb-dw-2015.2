@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div#calc {
+      width: 30%;
+      margin: auto;
+    }
+    div#calc input{
+      width: 100%;
+      font-size: 1.3em;
+    }
+    div#calc button{
+      font-size: 1.3em;
+      width: 22%;
+      height: 50px;
+      margin: 2px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="calc">
+    <input type="text" id="operand1" placeholder="valor de x">
+    <input type="text" id="operand2" placeholder="valor de y">
+    <button>+</button> 
+    <button>-</button>
+    <button>*</button>
+    <button>/</button>
+    <button>x<sup>y</sup></button>
+    <button>&radic;x</button>
+    <button>x!</button>
+    <button>ln x</button>
+    <input type="text" id="result" placeholder="resultado">
+  </div>
+
+  <script>
+    document.querySelector('button:nth-of-type(1)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(2)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(3)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(4)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(5)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(6)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(7)').addEventListener("click", calc, false)
+    document.querySelector('button:nth-of-type(8)').addEventListener("click", calc, false)
+    function calc(){
+      var operator = this.innerHTML;
+      var operand1 = parseFloat(document.querySelector('input#operand1').value);
+      var operand2 = parseFloat(document.querySelector('input#operand2').value);
+      var result = 0;
+      if (operator == "x<sup>y</sup>"){ 
+        result = Math.pow(operand1, operand2);
+      } else if (operator == "√x"){
+        result = Math.pow(operand1, 1/operand2);
+      }else if(operator == "x!") {
+      	result = operand1;
+      	for (var i = 1; i < operand1; i++) {
+      		result *= i;
+      	};
+      } else {
+        if(operator == "/" && operand2 == 0)
+          result = "Divisão por zero inválida"
+        else
+          result = eval(operand1+operator+operand2);
+      }
+      document.querySelector('input#result').value = result;
+    }
+  </script>
+</body>
+</html>
