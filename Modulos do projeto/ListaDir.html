@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista Diretórios</title>
+  </head>
+  <body>
+    <h1>Backup generator</h1><hr>
+    <form action="geraBkp.php" method="post">
+      <h4>Selecione os diretórios: </h4>
+      <div id="dir_boxes">
+      </div>
+      <br>
+      <button type="submit" name="button">Próximo</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+      $("document").ready(function(){
+        var url = "ListaDir.php";
+        $.get(url, function(dirList){
+          $('#dir_boxes').html('');
+          dirList.forEach(function(dir, index){
+            $('#dir_boxes').append('<input type="checkbox" name="dirs[]" value="'+dir+'">'+dir+'<br>');
+          })
+        });
+      });
+    </script>
+  </body>
+</html>
