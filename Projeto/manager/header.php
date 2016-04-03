@@ -7,14 +7,12 @@
       </h1>
     </div>
     <!--/Titulo-->
-    <!--Menu-->
+    <!--Wecolme user-->
     <div class="col-sm-1 col-md-1">
       <br>
-      <button type="button" class="btn btn-default btn-md" aria-label="Left Align">Menu
-        <span class="glyphicon glyphicon-menu-hamburger"></span>
-      </button>
+      <p>Bem vindo, <b><?php echo ucfirst($_SESSION['user']);?></b>!</p>
     </div>
-    <!--/Menu-->
+    <!--/Welcome user-->
     <!--Logout-->
     <div class="col-sm-1 col-md-1">
       <br>
