@@ -31,10 +31,10 @@
 <body>
   <?php
   if(!$logado){//Não tá logado
-    include('login.php');//Então vai logar
+    header('Location: ../');//Então vai logar
   }else{//Ta logado
     if(!isset($_GET['pg'])){//Não escolheu pagina
-      header('Location: manager');
+      include('start.php');
     }elseif(!file_exists("./".$_GET['pg'].".php")) {
       include('404.php');
     }else{

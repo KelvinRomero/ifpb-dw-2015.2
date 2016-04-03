@@ -22,7 +22,7 @@
         var url = "ListaDir.php";
         $.get(url, function(dirList){
           $('#dir_boxes').html('');
-          dirList.forEach(function(dir, index){
+          dirList.forEach(function(dir){
             $('#dir_boxes').append('<input type="checkbox" name="dirs[]" value="'+dir+'">'+dir+'<br>');
           })
         });

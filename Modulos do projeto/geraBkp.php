@@ -12,7 +12,7 @@
     $dirs = $_POST['dirs'];
     $dirs = implode(" ", $dirs);
     //Compacta os diretórios selecioanados, modelo: destino origem
-    shell_exec("tar -zcvf ./download.tar.gz /$dirs");
+    shell_exec("tar -zcvf ./download.tar.gz $dirs");
     echo '<br><a href="download.tar.gz"><button type="button" name="button">Download</button></a>';
     echo '<br><a href="ListaDir.html"><button type="button" name="button">Voltar</button></a>';
 

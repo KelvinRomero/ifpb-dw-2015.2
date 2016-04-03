@@ -1,3 +1,22 @@
+<?php
+  if(!isset($_SESSION['message'])){//Se vier com false
+    $message = ""; //Preenche com nada
+  }else {
+    $message = $_SESSION['message'];
+  }
+
+  if(!isset($_SESSION['error_msg'])){//Se vier com false
+    $error_msg = ""; //Preenche com nada
+  }else {
+    $error_msg = $_SESSION['error_msg'];
+  }
+
+  if(!isset($_SESSION['logout_msg'])){//Se vier com false
+    $logout_msg = ""; //Preenche com nada
+  }else {
+    $logout_msg = $_SESSION['logout_msg'];
+  }
+ ?>
 <div class="container">
   <!--Login -->
   <br>
@@ -6,6 +25,7 @@
     <div class="col-sm-12 col-md-4">
       <form action="auth.php" method="post">
         <div class="form-group">
+          <?php echo "<p>".$message.$error_msg.$logout_msg."</p>" ;?>
           <label for="username">Nome de usuário: </label>
           <input type="text" class="form-control" id="username" name="login" placeholder="Nome de usuário">
         </div>

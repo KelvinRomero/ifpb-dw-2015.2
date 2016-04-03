@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <br>
+    <div class="col-md-6 col-md-offset-3">
+      <ul class="nav nav-tabs">
+        <li class="nav"><a href="#ifconfig" data-toggle="tab">ifconfig</a></li>
+        <li class="nav"><a href="#netstat" data-toggle="tab">netstat</a></li>
+        <li class="nav active"><a href="#nslookup" data-toggle="tab">nslookup</a></li>
+        <li class="nav"><a href="#ping" data-toggle="tab">ping</a></li>
+        <li class="nav"><a href="#psaux" data-toggle="tab">psaux</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane fade" id="ifconfig">
+          <br>
+          <button id="btn-ifconfig" class="btn btn-info">Show</button>
+        </div>
+        <div class="tab-pane fade" id="netstat">
+          <button id="btn-netstat" class="btn btn-info">Show</button>
+        </div>
+        <div class="tab-pane fade in active" id="nslookup">
+          <br>
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="target">Target</label>
+              <input type="text" class="form-control" id="targetID" placeholder="example.com">
+            </div>
+            <button  id="btn-nslookup" type="submit" class="btn btn-default">Look it up!</button>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="ping">
+          ping
+        </div>
+        <div class="tab-pane fade" id="psaux" >
+          psaux
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Script-->
+  <script>
+    $("#btn-ifconfig").click(function() {
+    $.get("ifconfig.php", function(data){
+      $("#ifconfig").html('<br>');
+      $("#ifconfig").append('<a href="#" class="list-group-item active">'+data.interface+'</a>')
+      $("#ifconfig").append('<a href="#" class="list-group-item">'+data.iaddr+'</a>');
+      $("#ifconfig").append('<a href="#" class="list-group-item">'+data.bcast+'</a>');
+      $("#ifconfig").append('<a href="#" class="list-group-item">'+data.mask+'</a>');
+    });
+        });
+
+    $("#btn-nslookup").click(function(e) {
+      e.preventDefault();
+      var target = $('#targetID').val();
+      $.get("nslookup.php?target="+target, function(data){
+        $("#nslookup").html('<table class="table"> <thead> <tr><td>Name</td><td>Addres</tr></th> </thead> <tbody></tbody </table>');
+        data.address.forEach(function (ips){
+          $("table tbody").append('<tr><td>'+data.name[0]+'</td><td>'+ips+'<td></tr>');
+        });
+      });
+    });
+
+  </script>
+  <!-- /Script-->
+</body>
+</html>
