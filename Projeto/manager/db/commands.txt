@@ -1,0 +1,6 @@
+
+mysql -u root -p toor
+create dabase wsm;
+use wsm;
+create table usersources(id int not null auto_increment primary key, path varchar(100), user varchar(50));
+insert into usersources values (1, '/home/vagrant/', vagrant);

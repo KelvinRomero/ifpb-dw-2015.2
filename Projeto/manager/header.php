@@ -10,7 +10,7 @@
     <!--Wecolme user-->
     <div class="col-sm-1 col-md-1">
       <br>
-      <p>Bem vindo, <b><?php echo ucfirst($_SESSION['user']);?></b>!</p>
+      <p>Welcome, <b><?php echo ucfirst($_SESSION['user']);?></b> !</p>
     </div>
     <!--/Welcome user-->
     <!--Logout-->

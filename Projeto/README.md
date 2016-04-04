@@ -10,7 +10,7 @@ Kelvin Romero
   - Instalar aplicação
   - Acessar interface web ip-do-servidor/wsmbackups
   - Realizar login OK
-  - Seleciona as pastas para gerar backups 
+  - Seleciona as pastas para gerar backups
   - Escolhe o destino do backup
 
 ### Bacukps
@@ -18,10 +18,12 @@ Kelvin Romero
 Através de uma interface Web simplificada é possível adicionar servidores e configurar os arquivos CRON para gerenciamento de backups.
 
 - Customização
-- Agendamento
+- Agendamento *
 - Criação
-- Remoção
-- Listagem
+- Remoção *
+- Listagem *
+
+
 
 ### Instalação
 
